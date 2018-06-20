@@ -12,3 +12,12 @@
 
       :else
       (recur (inc i)))))
+
+(defn prime-1? [n]
+  (or (= 2 n)
+      (= 3 n)
+      (and (> n 1)
+           (odd? n)
+           (not-any?
+            (partial divides? n)
+            (range 3 (inc (Math/sqrt n)) 2)))))
